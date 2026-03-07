@@ -4,7 +4,7 @@ import dynamic from 'next/dynamic';
 import 'react-quill/dist/quill.snow.css';
 
 // 动态导入 ReactQuill，禁用 SSR
-const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false }) as any;
 
 interface RichEditorProps {
   value: string;
