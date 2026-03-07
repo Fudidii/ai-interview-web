@@ -16,7 +16,7 @@ export default function ResumeOptimizer() {
   const [optimizedContent, setOptimizedContent] = useState('');
   const [isOptimizing, setIsOptimizing] = useState(false);
   const [chatInput, setChatInput] = useState('');
-  const [chatHistory, setChatHistory] = useState<{ role: 'user' | 'ai'; content: string }[]>([
+  const [chatHistory, setChatHistory] = useState<{ role: 'user' | 'ai' | 'system'; content: string }[]>([
     { role: 'ai', content: '你好！我是你的简历优化助手。请先上传简历并提供目标岗位的 JD。' }
   ]);
 
