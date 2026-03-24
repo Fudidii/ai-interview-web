@@ -5,7 +5,10 @@ export const runtime = 'edge';
 export const maxDuration = 60;
 
 export async function POST(req: NextRequest) {
-  const apiKey = process.env.API_KEY;
+  let apiKey = process.env.API_KEY || '';
+  if (apiKey.startsWith('API_KEY=')) {
+    apiKey = apiKey.replace('API_KEY=', '');
+  }
 
   if (!apiKey) {
     return NextResponse.json(
