@@ -5,7 +5,7 @@ import mammoth from 'mammoth';
 // 注意：在 Next.js 中，我们需要指向 CDN 或者本地 public 目录下的 worker 文件
 // 这里使用 CDN 方式，确保版本匹配
 // @ts-ignore
-pdfjsLib.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.mjs`;
+pdfjsLib.GlobalWorkerOptions.workerSrc = `https://unpkg.com/pdfjs-dist@${pdfjsLib.version}/build/pdf.worker.min.js`;
 
 export const parseFile = async (file: File): Promise<string> => {
   const fileType = file.type;
