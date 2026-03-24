@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
   const baseURL = 'https://api.deepseek.com/v1'; // 如果使用智谱，请修改此处
 
   const openai = new OpenAI({
-    apiKey: apiKey,
+    apiKey: apiKey.trim(),
     baseURL: baseURL,
   });
 
