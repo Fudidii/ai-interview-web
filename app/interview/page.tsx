@@ -70,7 +70,10 @@ export default function InterviewPage() {
         }),
       });
 
-      if (!response.ok) throw new Error('API error');
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`API error (${response.status}): ${errorText}`);
+      }
 
       const reader = response.body?.getReader();
       if (!reader) return;
@@ -422,7 +425,10 @@ export default function InterviewPage() {
         }),
       });
 
-      if (!response.ok) throw new Error('Interviewer API error');
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`Interviewer API error (${response.status}): ${errorText}`);
+      }
 
       const reader = response.body?.getReader();
       if (!reader) return;
