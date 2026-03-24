@@ -101,6 +101,15 @@ export default function InterviewPage() {
       }
     } catch (error) {
       console.error('Init interview error:', error);
+      setMessages(prev => {
+        const newMsgs = [...prev];
+        if (newMsgs[newMsgs.length - 1].content === '') {
+          newMsgs[newMsgs.length - 1].content = `（系统错误：${error instanceof Error ? error.message : '未知错误'}）`;
+        } else {
+          newMsgs.push({ role: 'ai', content: `（系统错误：${error instanceof Error ? error.message : '未知错误'}）` });
+        }
+        return newMsgs;
+      });
     } finally {
       setIsInitializing(false);
       setIsAiThinking(false);
